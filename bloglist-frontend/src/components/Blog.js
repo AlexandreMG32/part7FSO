@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteBlog, likeBlog } from "../reducers/blogReducer";
+import { Link } from "react-router-dom";
 
 const Blog = ({ blog }) => {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const Blog = ({ blog }) => {
   if (!visible) {
     return (
       <div className="blog" style={blogStyle}>
-        {blog.title} {blog.author}
+        <Link to={"/blogs/" + blog.id}>{blog.title}</Link> {blog.author}
         <button className="view-details-button" onClick={toggleVisibility}>
           view
         </button>
